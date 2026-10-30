@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+import activity  # 引入你剛寫好的活動模組
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "成功啟動"}
+# 將 activity.py 裡的路由掛載進來
+app.include_router(activity.router)
