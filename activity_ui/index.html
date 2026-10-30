@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>活動報名平台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="container header"><h1>活動報名平台</h1><span>Activity Registration</span></div></header>
+  <main class="container">
+    <nav aria-label="主要功能">
+      <button class="tab active" data-page="list">活動清單</button>
+      <button class="tab" data-page="add">新增活動</button>
+      <button class="tab" data-page="registrations">報名名單</button>
+    </nav>
+    <section id="list" class="page active"><div class="heading"><div><h2>可報名的活動</h2><p>選擇有興趣的活動，立即填寫報名資料。</p></div></div><div id="activity-list" class="cards"></div></section>
+    <section id="add" class="page"><h2>新增活動</h2><p>填寫活動資訊後，即可顯示在活動清單。</p><form id="add-form" class="panel"><label>活動名稱 <input name="title" required maxlength="100" placeholder="例如：校園桌球交流賽"></label><label>活動日期 <input name="date" type="date" required></label><label>活動介紹 <textarea name="description" rows="4" required placeholder="請簡單介紹活動內容"></textarea></label><button class="primary" type="submit">新增活動</button></form></section>
+    <section id="register" class="page"><button class="back" id="back">← 返回活動清單</button><h2 id="register-title">活動報名</h2><p id="register-info"></p><form id="register-form" class="panel"><label>姓名 <input name="name" required maxlength="60" placeholder="請輸入姓名"></label><label>聯絡電話 <input name="phone" type="tel" required pattern="[0-9+()\- ]{6,20}" title="請輸入 6 至 20 位電話號碼" placeholder="例如：0912345678"></label><button class="primary" type="submit">送出報名</button></form></section>
+    <section id="registrations" class="page"><h2>活動報名名單</h2><p>選擇活動查看報名者。</p><div class="panel"><label>選擇活動 <select id="activity-select"></select></label><div class="table-wrap"><table><thead><tr><th>編號</th><th>姓名</th><th>聯絡電話</th></tr></thead><tbody id="registration-rows"></tbody></table></div></div></section>
+    <p id="message" role="status" aria-live="polite"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
